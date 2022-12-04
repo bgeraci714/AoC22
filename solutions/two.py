@@ -47,7 +47,7 @@ SCISSORS = 'Scissors'
 
 
 def solveB(input):
-    input = input.split("\n")
+
 
     sum = 0
     for line in input:
@@ -59,7 +59,6 @@ def solveB(input):
 
 
 def solveA(input):
-    input = input.split("\n")
 
     sum = 0
     for line in input:

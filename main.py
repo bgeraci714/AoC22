@@ -1,9 +1,10 @@
 import os
 
-from solutions.two import solveA, solveB
+from solutions.four import solveA, solveB
 
-PROBLEM_PART = 'A'
-PROBLEM_NUM = 2
+PROBLEM_PART = 'B'
+PROBLEM_NUM = 4
+
 
 
 def solve(problem_input):
@@ -18,7 +19,14 @@ if __name__ == '__main__':
     print(os.getcwd())
     # Open function to open the file "MyFile1.txt"
     # (same directory) in append mode and
-    path = "problems/" + str(PROBLEM_NUM) + "/input.txt"
-    with open(path) as input_file:
-        solution = solve(input_file.read())
-        print(solution)
+    path = f'problem_inputs/{PROBLEM_NUM}/'
+
+    with open(path + 'sample.txt') as input_file:
+        problem_input = input_file.read().split("\n")
+        solution = solve(problem_input)
+        print(f'sample solution = {solution}')
+
+    with open(path + 'input.txt') as input_file:
+        problem_input = input_file.read().split("\n")
+        solution = solve(problem_input)
+        print(f'problem solution = {solution}')

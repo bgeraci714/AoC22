@@ -1,5 +1,4 @@
-def solveB(input):
-    problem_input = input.split("\n")
+def solveB(problem_input):
     totals = []
 
     total = 0
@@ -22,8 +21,6 @@ def solveB(input):
 
 def solveA(input):
     max = -1
-
-    input = input.split("\n")
 
     sum = 0
     for line in input:
