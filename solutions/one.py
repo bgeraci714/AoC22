@@ -1,4 +1,4 @@
-def solveB(problem_input):
+def solve_b(problem_input):
     totals = []
 
     total = 0

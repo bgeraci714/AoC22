@@ -1,4 +1,4 @@
-def solveA(problem_input):
+def solve_a(problem_input):
     count = 0
     for row in problem_input:
         first, second = convert_row_to_pair(row)
@@ -9,7 +9,7 @@ def solveA(problem_input):
     return count
 
 
-def solveB(problem_input):
+def solve_b(problem_input):
     count = 0
     for row in problem_input:
         first, second = convert_row_to_pair(row)

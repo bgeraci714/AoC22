@@ -1,17 +1,17 @@
 import os
 
-from solutions.four import solveA, solveB
+from solutions.five import solve_a, solve_b
 
 PROBLEM_PART = 'B'
-PROBLEM_NUM = 4
+PROBLEM_NUM = 5
 
 
 def solve(parsed_input):
     # Use a breakpoint in the code line below to debug your script.
     if PROBLEM_PART == "A":
-        return solveA(parsed_input)
+        return solve_a(parsed_input)
     else:
-        return solveB(parsed_input)
+        return solve_b(parsed_input)
 
 
 if __name__ == '__main__':
