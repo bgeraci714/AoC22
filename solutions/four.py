@@ -28,22 +28,11 @@ def convert_row_to_pair(row):
 
 
 def is_overlapping(first, second):
-
-    if first[0] == second[0] or first[0] == second[1]:
-        # in between second pair of values
+    if second[0] <= first[0] <= second[1]:
         return True
-    elif first[1] == second[0] or first[1] == second[1]:
-        # in between second pair of values
-        return True
-    elif second[0] < first[0] < second[1]:
-        # within range
-        return True
-    elif second[0] < first[1] < second[1]:
-        # within range
+    elif second[0] <= first[1] <= second[1]:
         return True
     elif first[0] <= second[0] <= second[1] <= first[1]:
-        return True
-    elif second[0] <= first[0] <= first[1] <= second[1]:
         return True
 
     return False
