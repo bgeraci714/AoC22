@@ -6,19 +6,16 @@ PROBLEM_PART = 'B'
 PROBLEM_NUM = 4
 
 
-
-def solve(problem_input):
+def solve(parsed_input):
     # Use a breakpoint in the code line below to debug your script.
     if PROBLEM_PART == "A":
-        return solveA(problem_input)
+        return solveA(parsed_input)
     else:
-        return solveB(problem_input)
+        return solveB(parsed_input)
 
 
 if __name__ == '__main__':
     print(os.getcwd())
-    # Open function to open the file "MyFile1.txt"
-    # (same directory) in append mode and
     path = f'problem_inputs/{PROBLEM_NUM}/'
 
     with open(path + 'sample.txt') as input_file:
