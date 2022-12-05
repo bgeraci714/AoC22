@@ -1,7 +1,7 @@
 def solve_a(problem_input):
     state, commands = process_input(problem_input)
     for command in commands:
-        state = apply(state, command)
+        state = apply_a(state, command)
 
     return get_topmost_crates(state)
 
@@ -12,6 +12,7 @@ def solve_b(problem_input):
         state = apply_b(state, command)
 
     return get_topmost_crates(state)
+
 
 def get_topmost_crates(state):
     top = ""
@@ -29,24 +30,26 @@ def apply_b(state, command):
 
 
 def move_b(state, from_stack, to_stack, num_items):
-    moving = state[from_stack][-1 * (int(num_items))::]
     staying = state[from_stack][0:-1 * int(num_items)]
+    moving = state[from_stack][-1 * (int(num_items))::]
 
     state[from_stack] = staying
     state[to_stack] += moving
     return state
 
-def apply(state, command):
+
+def apply_a(state, command):
     times, from_stack, to_stack = parse_command(command)
+    state = move_a(state, from_stack, to_stack, times)
+    return state
+
+
+def move_a(state, from_stack, to_stack, times):
     for i in range(int(times)):
-        state = move(state, from_stack, to_stack)
+        top = state[from_stack].pop()
+        state[to_stack].append(top)
     return state
 
-
-def move(state, from_stack, to_stack):
-    top = state[from_stack].pop()
-    state[to_stack].append(top)
-    return state
 
 def parse_command(command):
     pieces = command.split(" ")
@@ -55,7 +58,6 @@ def parse_command(command):
     to_stack = pieces[5]
 
     return times, from_stack, to_stack
-
 
 
 def process_input(problem_input):
@@ -68,7 +70,7 @@ def process_input(problem_input):
     stack_id_block = problem_input[stack_id_index]
     initial_state = build_initial_state(stack_id_block, stacks_block)
 
-    # +2 because there's an extra line added
+    # +2 because there's an extra new line
     command_block = problem_input[stack_id_index + 2:]
 
     return initial_state, command_block
@@ -84,6 +86,7 @@ def get_stack_id_index(problem_input):
         else:
             index += 1
     return index
+
 
 # build initial state
 # {'1': [], '2': [], '3': []}
@@ -105,4 +108,3 @@ def build_initial_state(stack_id_block, stacks_block):
                 break
 
     return state
-
