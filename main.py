@@ -1,9 +1,9 @@
 import os
 
-from solutions.five import solve_a, solve_b
+from solutions.six import solve_a, solve_b
 
 PROBLEM_PART = 'B'
-PROBLEM_NUM = 5
+PROBLEM_NUM = 6
 
 
 def solve(parsed_input):
